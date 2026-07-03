@@ -1,0 +1,19 @@
+{
+  "name": "ai-public-grievance-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered MERN complaint management and grievance routing platform.",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "install:all": "npm install --workspaces",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
