@@ -75,7 +75,7 @@ Pipeline steps:
 - Escalation risk prediction
 - Complaint summary generation
 
-Gemini can be used for language-heavy tasks, while deterministic local fallback logic keeps the demo working even without an API key.
+Groq can be used for language-heavy tasks, while deterministic local fallback logic keeps the demo working even without an API key.
 
 Main AI file:
 
@@ -114,7 +114,7 @@ server/src/services/complaintService.js
 
 ### AI
 
-- Google Gemini API support
+- Groq API support
 - Local deterministic fallback
 - Text embeddings
 - Cosine similarity duplicate detection
@@ -217,17 +217,29 @@ Server variables live in `server/.env`.
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/grievance_ai
-JWT_SECRET=replace_with_a_long_secret
-CLIENT_URL=http://localhost:5173
-GEMINI_API_KEY=
+MONGO_URI=mongodb+srv://<db_user>:<db_password>@<cluster-host>/grievance_ai?retryWrites=true&w=majority
+JWT_SECRET=<generate_a_long_random_secret>
+CLIENT_URL=http://localhost:5173,https://your-frontend-domain.com
+GROQ_API_KEY=<your_groq_api_key>
 ```
 
 Client variables live in `client/.env`.
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=https://your-backend-domain.com/api
+VITE_SOCKET_URL=https://your-backend-domain.com
 ```
+
+## Deployment Environment Guide
+
+Use the same variable names in production, but replace localhost with your deployed domains:
+
+- `CLIENT_URL`: your frontend domain, plus `http://localhost:5173` for local development if you still run it locally
+- `VITE_API_URL`: your backend API base URL
+- `VITE_SOCKET_URL`: your backend base URL used by Socket.IO
+- `MONGO_URI`: your MongoDB Atlas connection string
+- `JWT_SECRET`: a long random secret generated once and kept private
+- `GROQ_API_KEY`: your Groq API key
 
 ## Demo Notes
 
