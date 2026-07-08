@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f0e7;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+@layer components {
+  .app-shell {
+    background:
+      linear-gradient(90deg, rgba(18, 107, 111, 0.07) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(18, 107, 111, 0.06) 1px, transparent 1px),
+      #f4f0e7;
+    background-size: 44px 44px;
+  }
+
+  .brand-lockup {
+    @apply flex items-center gap-3;
+  }
+
+  .brand-mark {
+    @apply relative grid h-12 w-12 place-items-center rounded-lg text-ink shadow-sm;
+    background: #9be7c7;
+  }
+
+  .brand-mark-ai {
+    @apply absolute -bottom-1 -right-1 rounded bg-alert p-0.5 text-white;
+  }
+
+  .brand-eyebrow {
+    @apply text-xs font-bold uppercase;
+    color: #9be7c7;
+  }
+
+  .brand-title {
+    @apply mt-0.5 text-xl font-semibold leading-tight text-white;
+  }
+
+  .brand-title-compact {
+    @apply text-lg;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-stone-300 transition hover:bg-white/10 hover:text-white;
+  }
+
+  .nav-link-active {
+    @apply bg-white text-ink shadow-sm hover:bg-white hover:text-ink;
+  }
+
+  .icon-button {
+    @apply grid h-10 w-10 place-items-center rounded-md border border-stone-200 bg-white text-stone-700 shadow-sm transition hover:border-civic hover:bg-teal-50 hover:text-civic;
+  }
+
+  .notification-dot {
+    @apply absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-alert px-1 text-[10px] font-bold text-white;
+  }
+
+  .notification-menu {
+    @apply absolute right-0 top-12 z-30 w-80 rounded-lg border border-stone-200 bg-white p-3 text-ink shadow-xl;
+  }
+
+  .notification-head {
+    @apply mb-3 flex items-center justify-between border-b border-stone-100 pb-2;
+  }
+
+  .notification-head span {
+    @apply text-sm font-semibold;
+  }
+
+  .notification-head button {
+    @apply text-xs font-semibold text-civic hover:text-teal-800;
+  }
+
+  .notification-item {
+    @apply flex gap-3 rounded-md border p-3 text-sm;
+  }
+
+  .notification-item svg {
+    @apply mt-0.5 shrink-0;
+  }
+
+  .notification-item strong {
+    @apply block text-sm;
+  }
+
+  .notification-item p {
+    @apply mt-1 text-xs leading-5 text-stone-600;
+  }
+
+  .notification-alert {
+    @apply border-red-200 bg-red-50 text-alert;
+  }
+
+  .notification-default {
+    @apply border-teal-200 bg-teal-50 text-civic;
+  }
+
+  .notification-success {
+    @apply border-emerald-200 bg-emerald-50 text-emerald-700;
+  }
+
+  .notification-empty {
+    @apply rounded-md bg-stone-50 p-3 text-sm text-stone-600;
+  }
+
+  .panel {
+    @apply rounded-lg border border-stone-200 bg-white/95 p-5 shadow-sm backdrop-blur;
+  }
+
+  .panel-title {
+    @apply mb-4 text-lg font-semibold text-ink;
+  }
+
+  .section-kicker {
+    @apply text-xs font-bold uppercase;
+    color: #9be7c7;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-stone-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-civic focus:ring-2 focus:ring-civic/20;
+  }
+
+  .input-with-icon {
+    @apply flex items-center gap-3 rounded-md border border-stone-300 bg-white px-3 py-2.5 text-stone-500 transition focus-within:border-civic focus-within:ring-2 focus-within:ring-civic/20;
+  }
+
+  .input-with-icon input {
+    @apply w-full border-0 bg-transparent text-sm text-ink outline-none;
+  }
+
+  .primary-button {
+    @apply rounded-md bg-civic px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .secondary-button {
+    @apply rounded-md border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 transition hover:bg-stone-100;
+  }
+
+  .segmented {
+    @apply rounded px-3 py-2 text-sm font-semibold text-stone-600 transition;
+  }
+
+  .segmented-active {
+    @apply bg-ink text-white shadow-sm;
+  }
+
+  .stat-card {
+    @apply overflow-hidden rounded-lg border border-stone-200 bg-white p-5 shadow-sm;
+  }
+
+  .stat-card-head {
+    @apply flex items-start justify-between gap-3;
+  }
+
+  .stat-icon {
+    @apply grid h-10 w-10 place-items-center rounded-md bg-teal-50 text-civic;
+  }
+
+  .stat-card span,
+  .mini-stat span,
+  .metric-row span {
+    @apply block text-xs font-semibold uppercase text-stone-500;
+  }
+
+  .stat-card strong {
+    @apply mt-4 block text-4xl font-semibold;
+  }
+
+  .stat-risk strong {
+    @apply text-civic;
+  }
+
+  .stat-alert strong {
+    @apply text-alert;
+  }
+
+  .data-table {
+    @apply w-full min-w-[720px] border-separate border-spacing-0 text-sm;
+  }
+
+  .data-table th {
+    @apply border-b border-stone-200 bg-stone-50 px-3 py-3 text-left text-xs font-semibold uppercase text-stone-500;
+  }
+
+  .data-table td {
+    @apply border-b border-stone-100 px-3 py-3.5;
+  }
+
+  .metric-row {
+    @apply min-w-36 rounded-md border border-stone-200 bg-stone-50 p-4;
+  }
+
+  .metric-row strong {
+    @apply mt-1 block text-2xl;
+  }
+
+  .mini-stat {
+    @apply rounded-md border border-stone-200 bg-stone-50 p-3;
+  }
+
+  .mini-stat strong {
+    @apply mt-1 block text-sm;
+  }
+
+  .file-drop {
+    @apply flex cursor-pointer items-center gap-2 rounded-md border border-dashed border-stone-300 bg-stone-50 px-3 py-5 text-sm font-medium text-stone-700 transition hover:border-civic hover:bg-teal-50;
+  }
+
+  .complaint-card {
+    @apply rounded-lg border border-stone-200 bg-white p-4 shadow-sm transition hover:border-civic/40 hover:shadow-md;
+  }
+
+  .dashboard-hero {
+    @apply grid gap-5 overflow-hidden rounded-lg bg-ink p-6 text-white shadow-sm md:grid-cols-[1fr_220px];
+    background-image:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .dashboard-hero h1 {
+    @apply mt-2 text-3xl font-semibold leading-tight md:text-4xl;
+  }
+
+  .dashboard-hero p:last-child {
+    @apply mt-3 max-w-2xl text-sm leading-6 text-stone-300;
+  }
+
+  .hero-risk {
+    @apply flex min-h-36 flex-col justify-between rounded-lg border border-white/10 bg-white/10 p-4;
+  }
+
+  .hero-risk span {
+    @apply text-xs font-semibold uppercase text-teal-100;
+  }
+
+  .hero-risk strong {
+    @apply text-5xl font-semibold;
+    color: #9be7c7;
+  }
+
+  .auth-screen {
+    @apply grid place-items-center text-white;
+    background-image:
+      linear-gradient(135deg, rgba(18, 107, 111, 0.16), rgba(185, 56, 21, 0.08)),
+      linear-gradient(90deg, rgba(23, 32, 42, 0.05) 1px, transparent 1px),
+      #f4f0e7;
+    background-size: auto, 42px 42px;
+  }
+
+  .auth-layout {
+    @apply grid w-full max-w-5xl overflow-hidden rounded-lg border border-stone-200 bg-white shadow-2xl md:grid-cols-[1fr_0.85fr];
+  }
+
+  .auth-story {
+    @apply relative min-h-[620px] overflow-hidden bg-ink p-8 md:p-10;
+  }
+
+  .auth-story::before {
+    content: "";
+    @apply absolute inset-0;
+    background:
+      radial-gradient(circle at 85% 18%, rgba(155, 231, 199, 0.18), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 40%);
+    pointer-events: none;
+  }
+
+  .auth-story > * {
+    @apply relative z-10;
+  }
+
+  .auth-card {
+    @apply bg-white p-6 text-ink md:p-8;
+  }
+
+  .auth-intro {
+    @apply mt-12 max-w-md;
+  }
+
+  .auth-intro h2 {
+    @apply mt-3 text-4xl font-semibold leading-tight;
+  }
+
+  .auth-intro p:last-child {
+    @apply mt-4 text-sm leading-6 text-stone-300;
+  }
+
+  .auth-feature-list {
+    @apply mt-8 space-y-3;
+  }
+
+  .auth-feature {
+    @apply flex gap-3 rounded-lg border border-white/10 bg-white/10 p-3 backdrop-blur;
+  }
+
+  .auth-feature-icon {
+    @apply grid h-10 w-10 shrink-0 place-items-center rounded-md bg-white text-civic;
+  }
+
+  .auth-feature strong {
+    @apply block text-sm font-semibold text-white;
+  }
+
+  .auth-feature p {
+    @apply mt-1 text-xs leading-5 text-stone-300;
+  }
+
+  .auth-preview-card {
+    @apply mt-8 rounded-lg border border-white/10 bg-white p-4 text-ink shadow-xl;
+  }
+
+  .auth-preview-head {
+    @apply mb-3 flex items-center justify-between;
+  }
+
+  .auth-preview-head span {
+    @apply text-xs font-bold uppercase text-stone-500;
+  }
+
+  .auth-preview-head strong {
+    @apply rounded bg-red-50 px-2 py-1 text-xs font-bold text-alert;
+  }
+
+  .auth-preview-card h3 {
+    @apply text-base font-semibold;
+  }
+
+  .auth-preview-card p {
+    @apply mt-2 text-sm leading-6 text-stone-600;
+  }
+
+  .auth-preview-meta {
+    @apply mt-4 flex flex-wrap items-center gap-2 text-xs font-semibold text-stone-500;
+  }
+
+  .auth-preview-meta span {
+    @apply inline-flex items-center gap-1 rounded bg-stone-100 px-2 py-1;
+  }
+}
