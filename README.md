@@ -217,9 +217,9 @@ Server variables live in `server/.env`.
 
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://<db_user>:<db_password>@<cluster-host>/grievance_ai?retryWrites=true&w=majority
+MONGO_URI=YOUR_MONGODB_ATLAS_CONNECTION_STRING
 JWT_SECRET=<generate_a_long_random_secret>
-CLIENT_URL=http://localhost:5173,https://your-frontend-domain.com
+CLIENT_URL=,https://your-frontend-domain.com
 GROQ_API_KEY=<your_groq_api_key>
 ```
 
