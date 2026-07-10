@@ -241,6 +241,22 @@ Use the same variable names in production, but replace localhost with your deplo
 - `JWT_SECRET`: a long random secret generated once and kept private
 - `GROQ_API_KEY`: your Groq API key
 
+## Deploy to Render and Vercel
+
+1. Push this repository to GitHub. The included `render.yaml` creates the Render web service from the repository root.
+2. In Render, select **New + > Blueprint**, connect this repository, and create the service. Set `MONGO_URI`, `CLIENT_URL`, and optionally `GROQ_API_KEY`. Render generates `JWT_SECRET` automatically. Copy the resulting backend URL (for example, `https://your-api.onrender.com`).
+3. In Vercel, import the same repository and set the **Root Directory** to `client`. Add these production environment variables before deploying:
+
+   ```env
+   VITE_API_URL=https://your-api.onrender.com/api
+   VITE_SOCKET_URL=https://your-api.onrender.com
+   ```
+
+4. Copy the Vercel production URL and update Render's `CLIENT_URL` to that exact URL. Redeploy the Render service after changing it.
+5. Verify `https://your-api.onrender.com/health`, then test registration, login, a complaint submission, and a live status update.
+
+Render's filesystem is not persistent. The current application retains attachment names only, so the demo is safe to deploy; add S3, Cloudinary, or similar object storage before storing real uploaded files.
+
 ## Demo Notes
 
 You can register directly from the app and choose a role: Citizen, Officer, or Admin.
