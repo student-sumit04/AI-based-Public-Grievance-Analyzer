@@ -244,7 +244,7 @@ Use the same variable names in production, but replace localhost with your deplo
 ## Deploy to Render and Vercel
 
 1. Push this repository to GitHub. The included `render.yaml` creates the Render web service from the repository root.
-2. In Render, select **New + > Blueprint**, connect this repository, and create the service. Set `MONGO_URI`, `CLIENT_URL`, and optionally `GROQ_API_KEY`. Render generates `JWT_SECRET` automatically. Copy the resulting backend URL (for example, `https://your-api.onrender.com`).
+2. In Render, select **New + > Blueprint**, connect this repository, and create the service. The Blueprint uses Render's free plan in the Singapore region. Set `MONGO_URI`, `CLIENT_URL`, and optionally `GROQ_API_KEY`. Render generates `JWT_SECRET` automatically. Copy the resulting backend URL (for example, `https://your-api.onrender.com`).
 3. In Vercel, import the same repository and set the **Root Directory** to `client`. Add these production environment variables before deploying:
 
    ```env
